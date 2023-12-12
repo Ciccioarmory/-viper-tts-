@@ -44,7 +44,7 @@ class SoundPlayer {
 		// Filter voices by language
 		const langVoices = voices.filter((voice) => voice.lang === lang);
 
-		// Find a female voice based on available information (you may need to adjust this logic)
+		// Find a female voice based on the name (case-insensitive)
 		const femaleVoice = langVoices.find((voice) =>
 			voice.name.toLowerCase().includes("female")
 		);
