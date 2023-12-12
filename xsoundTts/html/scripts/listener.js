@@ -49,7 +49,7 @@ $(function () {
 
 				var sd = new SoundPlayer();
 				sd.IsTextToSpeech(true);
-				console.log(item);
+				console.log(JSON.stringify(item));
 				sd.setName(item.name);
 				sd.setTextToSpeech(item.text);
 				sd.setTextToSpeechLang(item.lang);
