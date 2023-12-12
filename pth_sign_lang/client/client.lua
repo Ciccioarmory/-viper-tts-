@@ -1,4 +1,17 @@
-RegisterCommand(Config.command, function()
+RegisterCommand('tts', function(source, args, rawCommand)
+
+    local userInput = args[1]
+
+    if not userInput then
+        exports['okokNotify']:Alert('TTS', 'You have to include a message! (Example: /tts Hello)', 5000, 'error', true)
+        return
+    end
+
+    TriggerServerEvent("pth_sign_lang:playsound", getNearPlayers(Config.distance), GetEntityCoords(PlayerPedId()),
+        userInput)
+end, false)
+
+--[[ RegisterCommand(Config.command, function()
     SetNuiFocus(true, true)
     SendNUIMessage({
         action = "show"
@@ -13,7 +26,7 @@ RegisterNUICallback("closeAll", function(data, cb)
     cb {
         "ok"
     }
-end)
+end) ]]
 
 RegisterNUICallback("ReadText", function(data, cb)
     print(json.encode(data))
