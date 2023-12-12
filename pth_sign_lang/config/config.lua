@@ -1,10 +1,11 @@
-Config = {}
+Config = Config or {}
 
-Config.command = "tts" -- comando
+Config.command = "tts" -- The command name that will be used in game
 Config.lang = "en-US" -- language
 Config.distance = 5 -- max distance sound
-Config.volume = 0.2 -- volume do audio
+Config.volume = 0.2 -- volume of the audio
 
+-- People that can access the tts, discord id's only
 Config.Whitelist = {
     559503643313831937 -- brooke
 }
