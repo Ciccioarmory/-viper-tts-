@@ -19,7 +19,7 @@ end
 --- Checks if player discord id is in the whitelist, returns true if it is, false if it is not
 ---@param src integer Player id
 local function checkHasAccess(src)
-    local playerDiscord = GetDiscordId(src)
+    local playerDiscord = tonumber(GetDiscordId(src))
     print(playerDiscord)
     print(type(playerDiscord))
 
