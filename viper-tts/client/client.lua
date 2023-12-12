@@ -16,15 +16,21 @@ local function getNearPlayers(radius)
     return nearesPlayers
 end
 
+-- Event to get close players and actually play the sound
 RegisterNetEvent('viper-tts:client:playsound', function(userInput)
+
+    -- Getting the player ped
     local ped = PlayerPedId()
 
+    -- Checking if userInput has been provided
     if not userInput then
 
+        -- Error notify
         exports['okokNotify']:Alert('TTS', 'You have to include a message! (Example: /tts Hello)', 5000, 'error', true)
 
         return
     end
 
+    -- Playing the sound server side giving an array of id's, the ped position and the userInput
     TriggerServerEvent("viper-tts:server:playsound", getNearPlayers(Config.distance), GetEntityCoords(ped), userInput)
 end)
