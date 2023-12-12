@@ -15,9 +15,3 @@ server_scripts {
 client_scripts {
     'client/*'
 }
-
-ui_page 'nui/index.html'
-
-files {
-    'nui/**/*'
-}
