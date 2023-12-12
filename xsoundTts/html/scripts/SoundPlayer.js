@@ -25,6 +25,32 @@ class SoundPlayer {
 
 	setTextToSpeechLang(lang) {
 		this.textToReadLang = lang;
+		// Optionally, you can update the text-to-speech voice here
+		this.speechSynthMessage.voice = this.getVoiceForLang(lang);
+	}
+
+	/* getVoiceForLang(lang) {
+        // Implement logic to get the desired voice based on the language
+        // You may need to query the available voices and select the one that matches the desired language.
+        // Example:
+        const voices = window.speechSynthesis.getVoices();
+        const desiredVoice = voices.find(voice => voice.lang === lang);
+        return desiredVoice || voices[0]; // Fallback to the default voice if not found
+    } */
+
+	getVoiceForLang(lang) {
+		const voices = window.speechSynthesis.getVoices();
+
+		// Filter voices by language
+		const langVoices = voices.filter((voice) => voice.lang === lang);
+
+		// Find a female voice based on available information (you may need to adjust this logic)
+		const femaleVoice = langVoices.find((voice) =>
+			voice.name.toLowerCase().includes("female")
+		);
+
+		// Return the selected voice or the first available voice as a fallback
+		return femaleVoice || langVoices[0] || voices[0];
 	}
 
 	setTextToSpeech(text) {
