@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/xsound.iml" filepath="$PROJECT_DIR$/.idea/xsound.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/xsoundTts.iml" filepath="$PROJECT_DIR$/.idea/xsoundTts.iml" />
     </modules>
   </component>
 </project>

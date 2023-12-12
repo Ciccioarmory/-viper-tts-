@@ -1,10 +1,12 @@
 RegisterNUICallback("init", function(data, cb)
     SendNUIMessage({
         status = "init",
-        time = config.RefreshTime,
+        time = config.RefreshTime
     })
 
-    if cb then cb('ok') end
+    if cb then
+        cb('ok')
+    end
 end)
 
 RegisterNUICallback("data_status", function(data, cb)
@@ -13,7 +15,7 @@ RegisterNUICallback("data_status", function(data, cb)
             if not soundInfo[data.id].loop then
                 soundInfo[data.id].playing = false
             end
-            TriggerEvent("xSound:songStopPlaying", data.id)
+            TriggerEvent("xsoundTts:songStopPlaying", data.id)
         end
         if data.type == "maxDuration" then
             if not soundInfo[data.id].SkipTimeStamp then
@@ -25,7 +27,9 @@ RegisterNUICallback("data_status", function(data, cb)
         end
     end
 
-    if cb then cb('ok') end
+    if cb then
+        cb('ok')
+    end
 end)
 
 RegisterNUICallback("events", function(data, cb)
@@ -74,10 +78,12 @@ RegisterNUICallback("events", function(data, cb)
         end
     end
 
-    if cb then cb('ok') end
+    if cb then
+        cb('ok')
+    end
 end)
 
-RegisterNetEvent("xsound:stateSound", function(state, data)
+RegisterNetEvent("xsoundTts:stateSound", function(state, data)
     local soundId = data.soundId
 
     if state == "destroyOnFinish" then
