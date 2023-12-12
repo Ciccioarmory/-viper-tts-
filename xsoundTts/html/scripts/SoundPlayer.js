@@ -18,6 +18,7 @@ class SoundPlayer {
 		this.audioPlayer = null;
 
 		this.textToSpeech = false;
+		console.log(JSON.stringify(SpeechSynthesis.getVoices()));
 		this.speechSynthMessage = new SpeechSynthesisUtterance();
 		this.textToRead = "hello you know";
 		this.textToReadLang = "en-US";
