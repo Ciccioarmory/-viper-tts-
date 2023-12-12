@@ -1,14 +1,19 @@
 RegisterCommand('tts', function(source, args, rawCommand)
 
-    local userInput = args[1]
+    local ped = PlayerPedId()
+
+    local userInput = ""
+
+    for k, v in pairs(args) do
+        userInput = userInput .. " " .. v
+    end
 
     if not userInput then
         exports['okokNotify']:Alert('TTS', 'You have to include a message! (Example: /tts Hello)', 5000, 'error', true)
         return
     end
 
-    TriggerServerEvent("pth_sign_lang:playsound", getNearPlayers(Config.distance), GetEntityCoords(PlayerPedId()),
-        userInput)
+    TriggerServerEvent("pth_sign_lang:playsound", getNearPlayers(Config.distance), GetEntityCoords(ped), userInput)
 end, false)
 
 --[[ RegisterCommand(Config.command, function()
