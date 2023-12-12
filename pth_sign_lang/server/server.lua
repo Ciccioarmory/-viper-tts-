@@ -20,6 +20,7 @@ end
 ---@param src integer Player id
 local function checkHasAccess(src)
     local playerDiscord = GetDiscordId(src)
+    print(playerDiscord)
 
     if not exports['viper-lib']:contains(Config.Whitelist, playerDiscord) then
         TriggerClientEvent('okokNotify:Alert', src, 'TTS', 'You don\'t have access to this!', 5000, 'error', true)
