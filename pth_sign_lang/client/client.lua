@@ -16,31 +16,6 @@ RegisterCommand('tts', function(source, args, rawCommand)
     TriggerServerEvent("pth_sign_lang:playsound", getNearPlayers(Config.distance), GetEntityCoords(ped), userInput)
 end, false)
 
---[[ RegisterCommand(Config.command, function()
-    SetNuiFocus(true, true)
-    SendNUIMessage({
-        action = "show"
-    })
-end)
-
-RegisterNUICallback("closeAll", function(data, cb)
-    SetNuiFocus(false, false)
-    SendNUIMessage({
-        action = "hide"
-    })
-    cb {
-        "ok"
-    }
-end) ]]
-
-RegisterNUICallback("ReadText", function(data, cb)
-    print(json.encode(data))
-    TriggerServerEvent("pth_sign_lang:playsound", getNearPlayers(Config.distance), GetEntityCoords(PlayerPedId()), data)
-    cb {
-        "ok"
-    }
-end)
-
 function getNearPlayers(radius)
     local nearesPlayers = {}
     local ped = PlayerPedId()
