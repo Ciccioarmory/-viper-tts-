@@ -1,22 +1,4 @@
-RegisterCommand('tts', function(source, args, rawCommand)
-
-    local ped = PlayerPedId()
-
-    local userInput = ""
-
-    for k, v in pairs(args) do
-        userInput = userInput .. " " .. v
-    end
-
-    if not userInput then
-        exports['okokNotify']:Alert('TTS', 'You have to include a message! (Example: /tts Hello)', 5000, 'error', true)
-        return
-    end
-
-    TriggerServerEvent("pth_sign_lang:playsound", getNearPlayers(Config.distance), GetEntityCoords(ped), userInput)
-end, false)
-
-function getNearPlayers(radius)
+local function getNearPlayers(radius)
     local nearesPlayers = {}
     local ped = PlayerPedId()
     local coords = GetEntityCoords(ped)
@@ -33,3 +15,16 @@ function getNearPlayers(radius)
     end
     return nearesPlayers
 end
+
+RegisterNetEvent('viper-tts:client:playsound', function(userInput)
+    local ped = PlayerPedId()
+
+    if not userInput then
+
+        exports['okokNotify']:Alert('TTS', 'You have to include a message! (Example: /tts Hello)', 5000, 'error', true)
+
+        return
+    end
+
+    TriggerServerEvent("viper-tts:server:playsound", getNearPlayers(Config.distance), GetEntityCoords(ped), userInput)
+end)
