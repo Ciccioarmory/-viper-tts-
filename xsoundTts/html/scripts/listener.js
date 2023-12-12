@@ -49,19 +49,15 @@ $(function () {
 
 				var sd = new SoundPlayer();
 				sd.IsTextToSpeech(true);
-				console.log(JSON.stringify(item));
 				sd.setName(item.name);
-				sd.setTextToSpeechLang(item.lang);
 				sd.setTextToSpeech(item.text);
+				sd.setTextToSpeechLang(item.lang);
 				sd.setDynamic(item.dynamic);
 				sd.setLocation(item.x, item.y, item.z);
-
-				// Set the volume before creating and playing the sound
-				sd.setVolume(item.volume);
-
 				sd.create();
-				sd.play();
 
+				sd.setVolume(item.volume);
+				sd.play();
 				soundList[item.name] = sd;
 				break;
 
